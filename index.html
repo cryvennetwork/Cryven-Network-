@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cryven Network – Community Powered Crypto</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cryven Network – Premium</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -15,7 +15,7 @@
     <a class="btn" href="whitepaper.html">Read Whitepaper</a>
     <div class="social-links">
       <a href="https://t.me/cryven_network" target="_blank">Telegram</a>
-      <a href="https://www.tiktok.com/@cryven_network" target="_blank">TikTok</a>
+      <a href="https://www.tiktok.com/@cryven_network?_t=ZS-904GkJge5Qn&_r=1" target="_blank">TikTok</a>
     </div>
   </header>
 
@@ -26,26 +26,43 @@
 
   <section data-aos="fade-up">
     <h2>Tokenomics</h2>
-    <div class="card">💠 Total Supply: <strong>1,000,000,000 CRY</strong></div>
-    <div class="card">🎁 Airdrop & Community Reward: 40%</div>
-    <div class="card">💧 Liquidity & Exchange: 20%</div>
-    <div class="card">⚙️ Development & Ecosystem: 20%</div>
-    <div class="card">👨‍💻 Team (locked & vesting): 10%</div>
-    <div class="card">🤝 Partnership & Marketing: 10%</div>
+    <div class="flex-row">
+      <div class="card">Total Supply: <strong>1,000,000,000 CRY</strong></div>
+      <div class="card">Airdrop & Community Reward: 40%</div>
+      <div class="card">Liquidity & Exchange: 20%</div>
+      <div class="card">Development & Ecosystem: 20%</div>
+      <div class="card">Team (locked & vesting): 10%</div>
+      <div class="card">Partnership & Marketing: 10%</div>
+    </div>
   </section>
 
   <section data-aos="fade-up">
-    <h2>Roadmap</h2>
-    <div class="card">🚀 Phase 1 – Q4 2025: Launch brand, website, token contract testnet, community building.</div>
-    <div class="card">🌍 Phase 2 – Q1 2026: First global airdrop, referral campaigns, DEX listing.</div>
-    <div class="card">💎 Phase 3 – Q2–Q3 2026: Staking & rewards, dashboard + explorer, web3 partnerships.</div>
+    <h2>Roadmap to 2030</h2>
+    <div class="card">Q4 2025: Brand, Website, Testnet Launch</div>
+    <div class="card">Q1 2026: Airdrop & DEX Listing</div>
+    <div class="card">Q2-Q3 2026: Staking, Dashboard, Partnerships</div>
+    <div class="card">Q4 2026: DAO Launch & Governance</div>
+    <div class="card">2027: ZKP, Burning, Utility Apps</div>
+    <div class="card">2028: Cryven Chain Testnet & Validator</div>
+    <div class="card">2029: Mainnet, Token Migration, Wallet & Pay</div>
+    <div class="card">2030: Expansion, Cross-Chain, Ecosystem Growth</div>
   </section>
 
   <footer>
-    © 2025 Cryven Network | Built for the Community
+    &copy; 2025 Cryven Network | Built for the Community
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init({ duration: 1000, once: true });</script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('[data-aos]').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.85) {
+          el.classList.add('aos-animate');
+        }
+      });
+    });
+  </script>
 </body>
-          </html>
+  </html>
