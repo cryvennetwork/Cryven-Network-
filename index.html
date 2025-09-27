@@ -5,148 +5,276 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cryven Network – Community Powered Crypto</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0; padding: 0;
-      background: #0a0a0a; color: #eee;
-      line-height: 1.6;
+      background: #0f0f1a; color: #eee;
     }
     header {
-      background: linear-gradient(90deg,#4e54c8,#8f94fb);
-      padding: 30px 20px; text-align: center;
+      background: linear-gradient(120deg,#4e54c8,#8f94fb);
+      padding: 50px 20px; text-align: center;
     }
-    header h1 { margin: 0; font-size: 2.5em; }
-    header p { margin-top: 8px; font-size: 1.2em; }
-    header .social-btns {
-      margin-top: 15px;
+    header h1 { margin: 0; font-size: 2.8em; font-weight: 700; }
+    header p { margin: 10px 0 20px; font-size: 1.2em; color: #f0f0f0; }
+    .btn {
+      display: inline-block; margin: 10px; padding: 12px 24px;
+      background: #fff; color: #4e54c8; text-decoration: none; border-radius: 30px;
+      font-weight: 600; transition: all .3s;
     }
-    header .social-btns a {
-      display: inline-block; margin: 0 8px;
-      padding: 10px 20px;
-      background: #fff; color: #4e54c8;
-      text-decoration: none; border-radius: 5px;
+    .btn:hover { background: #f0f0f0; transform: translateY(-2px); }
+    .lang-switch { margin-top: 20px; }
+    .lang-switch button {
+      margin: 0 5px; padding: 8px 16px; border: none; border-radius: 20px;
+      background: #222; color: #fff; cursor: pointer; font-weight: 600;
+      transition: .3s;
     }
-    header .social-btns a:hover {
-      background: #f0f0f0;
-    }
+    .lang-switch button:hover { background: #4e54c8; }
     section {
-      padding: 40px 20px; max-width: 900px; margin: auto;
+      max-width: 1000px; margin: auto; padding: 60px 20px;
     }
-    h2 { color: #8f94fb; border-bottom: 2px solid #8f94fb; padding-bottom: 6px; }
+    section h2 {
+      font-size: 1.8em; color: #8f94fb; margin-bottom: 15px; border-left: 4px solid #8f94fb; padding-left: 10px;
+    }
+    section p, section ul, section table { font-size: 1.05em; color: #ddd; }
     ul { margin-left: 20px; }
     table {
-      width: 100%; border-collapse: collapse; margin: 20px 0;
+      width: 100%; border-collapse: collapse; margin-top: 20px;
+      background: #1a1a2e; border-radius: 10px; overflow: hidden;
     }
     th, td {
-      border: 1px solid #555; padding: 10px; text-align: left;
+      padding: 12px 15px; border-bottom: 1px solid #333;
     }
-    th { background: #222; color: #fff; }
+    th { background: #2a2a40; color: #fff; text-align: left; }
+    tr:hover { background: #222; }
     footer {
-      text-align: center; padding: 20px;
-      background: #111; font-size: 0.9em; color: #aaa;
+      text-align: center; padding: 25px; background: #111; color: #999; font-size: 0.9em;
     }
-    .btn {
-      display: inline-block; margin-top: 15px; padding: 10px 20px;
-      background: #8f94fb; color: #fff; text-decoration: none; border-radius: 5px;
-    }
-    .btn:hover { background: #4e54c8; }
   </style>
 </head>
 <body>
   <header>
     <h1>Cryven Network</h1>
-    <p>Community-Powered Crypto Revolution 🚀</p>
-    <a class="btn" href="#whitepaper">Read Whitepaper</a>
-    <div class="social-btns">
-      <a href="https://t.me/cryven_network" target="_blank">Telegram</a>
-      <a href="https://www.tiktok.com/@cryven_network?_t=ZS-904B4ik4PnE&_r=1" target="_blank">TikTok</a>
+    <p id="tagline">Community-Powered Crypto Revolution 🚀</p>
+    <a class="btn" href="#whitepaper" id="btnWhitepaper">Read Whitepaper</a>
+    <a class="btn" href="https://t.me/cryven_network" target="_blank">Telegram</a>
+    <a class="btn" href="https://www.tiktok.com/@cryven_network?_t=ZS-904B4ik4PnE&_r=1" target="_blank">TikTok</a>
+
+    <div class="lang-switch">
+      <button onclick="setLang('en')">EN</button>
+      <button onclick="setLang('id')">ID</button>
     </div>
   </header>
 
   <section id="intro">
-    <h2>1. Introduction</h2>
-    <p>
-      Cryven Network is a revolutionary crypto distribution project that starts from the community, for the community.
-      Born from the spirit of Bitcoin’s decentralization, Cryven stands not only as a token, but as a movement that ensures fairness, transparency, and growth.
-    </p>
+    <h2 id="introTitle"></h2>
+    <p id="introText"></p>
   </section>
 
   <section id="vision">
-    <h2>2. Vision & Mission</h2>
-    <p><b>Vision:</b> To become the next-generation decentralized ecosystem where ownership, governance, and value truly belong to the community.</p>
-    <p><b>Mission:</b></p>
-    <ul>
-      <li>Democratize access to digital assets through fair airdrops.</li>
-      <li>Build a sustainable and community-driven ecosystem.</li>
-      <li>Implement DAO governance where every holder has a voice.</li>
-      <li>Apply Zero-Knowledge Proof (ZKP) for privacy and security.</li>
-      <li>Ensure long-term value through burning mechanisms.</li>
-      <li>Create a Proof of Activity (PoA) system rewarding only active members.</li>
-      <li>Evolve into a full blockchain (Cryven Chain) once the ecosystem matures.</li>
-    </ul>
+    <h2 id="visionTitle"></h2>
+    <p id="visionText"></p>
+    <ul id="missionList"></ul>
   </section>
 
   <section id="tokenomics">
-    <h2>3. Tokenomics</h2>
+    <h2 id="tokenomicsTitle"></h2>
+    <p id="supplyText"></p>
     <table>
-      <tr><th>Allocation</th><th>Percentage</th></tr>
-      <tr><td>Airdrop & Community Reward</td><td>40%</td></tr>
-      <tr><td>Liquidity & Exchange</td><td>20%</td></tr>
-      <tr><td>Development & Ecosystem</td><td>20%</td></tr>
-      <tr><td>Team (locked & vesting)</td><td>10%</td></tr>
-      <tr><td>Partnership & Marketing</td><td>10%</td></tr>
+      <tr><th id="allocCol"></th><th id="percCol"></th></tr>
+      <tr><td id="row1col1"></td><td>40%</td></tr>
+      <tr><td id="row2col1"></td><td>20%</td></tr>
+      <tr><td id="row3col1"></td><td>20%</td></tr>
+      <tr><td id="row4col1"></td><td>10%</td></tr>
+      <tr><td id="row5col1"></td><td>10%</td></tr>
     </table>
-    <p><b>Burning Mechanism:</b> A portion of fees is automatically burned. Buyback & burn events reduce circulating supply.</p>
-    <p><b>Proof of Activity (PoA):</b> Rewards distributed only to active users. Inactive wallets stop receiving rewards.</p>
+    <p id="burningText"></p>
+    <p id="poaText"></p>
   </section>
 
   <section id="utility">
-    <h2>4. Utility & Use Cases</h2>
-    <ul>
-      <li>Payments: CRY as a fast, low-fee payment method.</li>
-      <li>NFT Marketplace: Buy & sell digital assets with CRY.</li>
-      <li>DeFi: Staking, lending, borrowing.</li>
-      <li>GameFi & Metaverse: In-game currency and utilities.</li>
-      <li>Cross-Border Remittance: Low-cost, instant transfers.</li>
-    </ul>
+    <h2 id="utilityTitle"></h2>
+    <ul id="utilityList"></ul>
   </section>
 
   <section id="value">
-    <h2>5. Value Proposition for Investors</h2>
-    <ul>
-      <li>Deflationary Token Model → Scarcity increases value.</li>
-      <li>Strong Community Base → Fair distribution = viral growth.</li>
-      <li>Advanced Security → ZKP-based privacy.</li>
-      <li>Active User Rewards → Only engaged members benefit, reducing sell pressure.</li>
-      <li>Long-Term Growth Plan → Transition into a native blockchain.</li>
-    </ul>
+    <h2 id="valueTitle"></h2>
+    <ul id="valueList"></ul>
   </section>
 
   <section id="roadmap">
-    <h2>6. Roadmap</h2>
+    <h2 id="roadmapTitle"></h2>
     <table>
       <tr><th>Phase</th><th>Details</th></tr>
-      <tr><td>Phase 1 – Foundation (Q4 2025)</td><td>Launch brand, website, token contract testnet, community building.</td></tr>
-      <tr><td>Phase 2 – Airdrop & Awareness (Q1 2026)</td><td>First global airdrop, referral campaigns, DEX listing.</td></tr>
-      <tr><td>Phase 3 – Ecosystem Build (Q2–Q3 2026)</td><td>Staking & rewards, dashboard + explorer, web3 partnerships.</td></tr>
-      <tr><td>Phase 4 – DAO & Governance (Q4 2026)</td><td>Cryven DAO launch, proposal & voting, transparency.</td></tr>
-      <tr><td>Phase 5 – Security & Value Upgrade (2027)</td><td>ZKP, burning mechanism, PoA reward, DeFi/NFT/payment apps, CEX listing.</td></tr>
-      <tr><td>Phase 6 – Cryven Chain Development (2028)</td><td>Testnet blockchain, PoA + ZKP, validator program.</td></tr>
-      <tr><td>Phase 7 – Mainnet Launch (2029)</td><td>Mainnet, token migration → native coin, DAO on-chain, Cryven Wallet & Pay rollout.</td></tr>
+      <tr><td>Phase 1 – Q4 2025</td><td id="phase1"></td></tr>
+      <tr><td>Phase 2 – Q1 2026</td><td id="phase2"></td></tr>
+      <tr><td>Phase 3 – Q2–Q3 2026</td><td id="phase3"></td></tr>
+      <tr><td>Phase 4 – Q4 2026</td><td id="phase4"></td></tr>
+      <tr><td>Phase 5 – 2027</td><td id="phase5"></td></tr>
+      <tr><td>Phase 6 – 2028</td><td id="phase6"></td></tr>
+      <tr><td>Phase 7 – 2029</td><td id="phase7"></td></tr>
     </table>
   </section>
 
   <section id="conclusion">
-    <h2>7. Conclusion</h2>
-    <p>
-      Cryven Network is not just another token. It is a community-powered revolution, starting from fair distribution and growing into a full blockchain ecosystem.  
-      With DAO, ZKP, Proof of Activity, and deflationary mechanisms, Cryven offers both utility and long-term value for its users and investors.  
-    </p>
-    <p><b>⚡ Cryven is the revolution. Be part of the next Bitcoin movement.</b></p>
+    <h2 id="conclusionTitle"></h2>
+    <p id="conclusionText"></p>
   </section>
 
   <footer>
-    <p>© 2025 Cryven Network | Built for the Community</p>
+    © 2025 Cryven Network | Built for the Community
   </footer>
+
+  <script>
+    const texts = {
+      en: {
+        tagline: "Community-Powered Crypto Revolution 🚀",
+        btnWhitepaper: "Read Whitepaper",
+        introTitle: "1. Introduction",
+        introText: "Cryven Network is a revolutionary crypto distribution project that starts from the community, for the community.",
+        visionTitle: "2. Vision & Mission",
+        visionText: "Vision: To become the next-generation decentralized ecosystem where ownership, governance, and value truly belong to the community.",
+        missionList: [
+          "Democratize access to digital assets through fair airdrops.",
+          "Build a sustainable and community-driven ecosystem.",
+          "Implement DAO governance where every holder has a voice.",
+          "Apply Zero-Knowledge Proof (ZKP) for privacy and security.",
+          "Ensure long-term value through burning mechanisms.",
+          "Create a Proof of Activity (PoA) system rewarding only active members.",
+          "Evolve into a full blockchain (Cryven Chain) once the ecosystem matures."
+        ],
+        tokenomicsTitle: "3. Tokenomics",
+        supplyText: "Total Supply: 1,000,000,000 CRY",
+        allocCol: "Allocation", percCol: "Percentage",
+        row1col1: "Airdrop & Community Reward",
+        row2col1: "Liquidity & Exchange",
+        row3col1: "Development & Ecosystem",
+        row4col1: "Team (locked & vesting)",
+        row5col1: "Partnership & Marketing",
+        burningText: "Burning Mechanism: A portion of fees is automatically burned. Buyback & burn events reduce circulating supply.",
+        poaText: "Proof of Activity (PoA): Rewards distributed only to active users. Inactive wallets stop receiving rewards.",
+        utilityTitle: "4. Utility & Use Cases",
+        utilityList: [
+          "Payments: CRY as a fast, low-fee payment method.",
+          "NFT Marketplace: Buy & sell digital assets with CRY.",
+          "DeFi: Staking, lending, borrowing.",
+          "GameFi & Metaverse: In-game currency and utilities.",
+          "Cross-Border Remittance: Low-cost, instant transfers."
+        ],
+        valueTitle: "5. Value Proposition for Investors",
+        valueList: [
+          "Deflationary Token Model → Scarcity increases value.",
+          "Strong Community Base → Fair distribution = viral growth.",
+          "Advanced Security → ZKP-based privacy.",
+          "Active User Rewards → Only engaged members benefit, reducing sell pressure.",
+          "Long-Term Growth Plan → Transition into a native blockchain."
+        ],
+        roadmapTitle: "6. Roadmap",
+        phase1: "Launch brand, website, token contract testnet, community building.",
+        phase2: "First global airdrop, referral campaigns, DEX listing.",
+        phase3: "Staking & rewards, dashboard + explorer, web3 partnerships.",
+        phase4: "Cryven DAO launch, proposal & voting, transparency.",
+        phase5: "ZKP, burning mechanism, PoA reward, DeFi/NFT/payment apps, CEX listing.",
+        phase6: "Testnet blockchain, PoA + ZKP, validator program.",
+        phase7: "Mainnet, token migration → native coin, DAO on-chain, Cryven Wallet & Pay rollout.",
+        conclusionTitle: "7. Conclusion",
+        conclusionText: "Cryven Network is not just another token. It is a community-powered revolution, starting from fair distribution and growing into a full blockchain ecosystem."
+      },
+      id: {
+        tagline: "Revolusi Kripto yang Didukung Komunitas 🚀",
+        btnWhitepaper: "Baca Whitepaper",
+        introTitle: "1. Pendahuluan",
+        introText: "Cryven Network adalah proyek distribusi kripto revolusioner yang dimulai dari komunitas, untuk komunitas.",
+        visionTitle: "2. Visi & Misi",
+        visionText: "Visi: Menjadi ekosistem terdesentralisasi generasi berikutnya di mana kepemilikan, tata kelola, dan nilai sepenuhnya milik komunitas.",
+        missionList: [
+          "Mendemokratisasi akses ke aset digital melalui airdrop yang adil.",
+          "Membangun ekosistem yang berkelanjutan dan digerakkan komunitas.",
+          "Menerapkan tata kelola DAO di mana setiap holder memiliki suara.",
+          "Menerapkan Zero-Knowledge Proof (ZKP) untuk privasi dan keamanan.",
+          "Menjamin nilai jangka panjang melalui mekanisme burning.",
+          "Membuat sistem Proof of Activity (PoA) yang memberi reward hanya untuk anggota aktif.",
+          "Berkembang menjadi blockchain penuh (Cryven Chain) setelah ekosistem matang."
+        ],
+        tokenomicsTitle: "3. Tokenomics",
+        supplyText: "Total Suplai: 1.000.000.000 CRY",
+        allocCol: "Alokasi", percCol: "Persentase",
+        row1col1: "Airdrop & Reward Komunitas",
+        row2col1: "Likuiditas & Exchange",
+        row3col1: "Pengembangan & Ekosistem",
+        row4col1: "Tim (terkunci & vesting)",
+        row5col1: "Kemitraan & Marketing",
+        burningText: "Mekanisme Burning: Sebagian biaya otomatis dibakar. Event buyback & burn mengurangi suplai beredar.",
+        poaText: "Proof of Activity (PoA): Reward hanya dibagikan ke pengguna aktif. Wallet tidak aktif berhenti menerima reward.",
+        utilityTitle: "4. Utilitas & Use Case",
+        utilityList: [
+          "Pembayaran: CRY sebagai metode cepat dan murah.",
+          "Marketplace NFT: Jual beli aset digital dengan CRY.",
+          "DeFi: Staking, pinjam-meminjam.",
+          "GameFi & Metaverse: Mata uang dan utilitas in-game.",
+          "Remitansi lintas negara: Transfer instan berbiaya rendah."
+        ],
+        valueTitle: "5. Nilai untuk Investor",
+        valueList: [
+          "Model Token Deflasi → Kelangkaan meningkatkan nilai.",
+          "Basis Komunitas Kuat → Distribusi adil = pertumbuhan viral.",
+          "Keamanan Tinggi → Privasi berbasis ZKP.",
+          "Reward Anggota Aktif → Hanya anggota aktif yang mendapat manfaat.",
+          "Rencana Jangka Panjang → Transisi menjadi blockchain native."
+        ],
+        roadmapTitle: "6. Roadmap",
+        phase1: "Peluncuran brand, website, kontrak token testnet, pembangunan komunitas.",
+        phase2: "Airdrop global pertama, kampanye referral, listing di DEX.",
+        phase3: "Staking & reward, dashboard + explorer, kemitraan web3.",
+        phase4: "Peluncuran DAO Cryven, proposal & voting, transparansi dana.",
+        phase5: "Integrasi ZKP, mekanisme burning, reward PoA, aplikasi utilitas, listing CEX.",
+        phase6: "Testnet blockchain, konsensus PoA + ZKP, program validator.",
+        phase7: "Mainnet, migrasi token → native coin, DAO full on-chain, Cryven Wallet & Pay.",
+        conclusionTitle: "7. Kesimpulan",
+        conclusionText: "Cryven Network bukan sekadar token. Ini adalah revolusi yang digerakkan komunitas, dimulai dari distribusi adil dan berkembang menjadi ekosistem blockchain penuh."
+      }
+    };
+
+    function setLang(lang) {
+      const t = texts[lang];
+      document.getElementById("tagline").innerText = t.tagline;
+      document.getElementById("btnWhitepaper").innerText = t.btnWhitepaper;
+      document.getElementById("introTitle").innerText = t.introTitle;
+      document.getElementById("introText").innerText = t.introText;
+      document.getElementById("visionTitle").innerText = t.visionTitle;
+      document.getElementById("visionText").innerText = t.visionText;
+      document.getElementById("missionList").innerHTML = t.missionList.map(item => `<li>${item}</li>`).join("");
+      document.getElementById("tokenomicsTitle").innerText = t.tokenomicsTitle;
+      document.getElementById("supplyText").innerText = t.supplyText;
+      document.getElementById("allocCol").innerText = t.allocCol;
+      document.getElementById("percCol").innerText = t.percCol;
+      document.getElementById("row1col1").innerText = t.row1col1;
+      document.getElementById("row2col1").innerText = t.row2col1;
+      document.getElementById("row3col1").innerText = t.row3col1;
+      document.getElementById("row4col1").innerText = t.row4col1;
+      document.getElementById("row5col1").innerText = t.row5col1;
+      document.getElementById("burningText").innerText = t.burningText;
+      document.getElementById("poaText").innerText = t.poaText;
+      document.getElementById("utilityTitle").innerText = t.utilityTitle;
+      document.getElementById("utilityList").innerHTML = t.utilityList.map(item => `<li>${item}</li>`).join("");
+      document.getElementById("valueTitle").innerText = t.valueTitle;
+      document.getElementById("valueList").innerHTML = t.valueList.map(item => `<li>${item}</li>`).join("");
+      document.getElementById("roadmapTitle").innerText = t.roadmapTitle;
+      document.getElementById("phase1").innerText = t.phase1;
+      document.getElementById("phase2").innerText = t.phase2;
+      document.getElementById("phase3").innerText = t.phase3;
+      document.getElementById("phase4").innerText = t.phase4;
+      document.getElementById("phase5").innerText = t.phase5;
+      document.getElementById("phase6").innerText = t.phase6;
+      document.getElementById("phase7").innerText = t.phase7;
+      document.getElementById("conclusionTitle").innerText = t.conclusionTitle;
+      document.getElementById("conclusionText").innerText = t.conclusionText;
+    }
+
+    // default English
+    setLang('en');
+  </script>
 </body>
-        </html>
+  </html>
+
